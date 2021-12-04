@@ -1,82 +1,49 @@
-import Head from 'next/head'
+import React, { useEffect, useState } from "react";
+import Head from "next/head";
+import Title from "../src/Layouts/Title";
+import Form from "../src/Layouts/Form";
+import Cards from "../src/Layouts/Cards";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Bug MEMO</title>
+        <link rel="icon" href="/bug.ico" />
       </Head>
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
+      <div className="flex flex-col items-center min-h-screen py-2 bg-gray-200">
+        <main className="flex flex-col items-center w-full flex-1 px-20 text-center">
+          <Title />
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.js
-          </code>
-        </p>
+          <div className="bg-blueish rounded-t-lg mt-8 text-left border-t-4 border-solid border-opacity-30 border-blueish">
+            <h2 className="pl-4 text-white">Funcionalidade?</h2>
+            <div className="bg-secondary m-1 text-left p-3">
+              <p className="text-base font-serif">
+                Eu criei esse site apenas para demonstrar minhas habilidades
+                tanto no frontend, quanto no backend. <br /> No frontend eu
+                utilizei o Next JS, um framework do React, juntamente com o
+                Tailwind CSS. <br /> E o backend esta rodando no Node JS,
+                juntamente com o Express e o meu database é o da MongoDB. <br />{" "}
+                Caso você queira colocar uma historia de um Bug que aconteceu
+                com você sinta se avontade para contar sua historia. <br />{" "}
+                Lembrando que, pedimos um email apenas para aumentar a segurança
+                do nosso backend, limitando as gravações no nosso DB por email
+                (3 gravações por email).
+              </p>
+            </div>
+          </div>
 
-        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
-    </div>
-  )
+          <div className="grid grid-cols-6 gap-2 w-full mt-10">
+            <div className="col-span-4">
+              <Cards />
+            </div>
+            <div className="col-span-2">
+              <Form />
+            </div>
+          </div>
+        </main>
+      </div>
+    </>
+  );
 }
